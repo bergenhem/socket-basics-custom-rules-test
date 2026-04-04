@@ -1,22 +1,26 @@
-name: Socket Security Scan
+name: ⚡️ Security Scan
 
 on:
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
-  socket-scan:
-    runs-on: ubuntu-latest
+  security-scan:
+    permissions:
+      issues: write
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: ctions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Socket Security Scan
-        uses: SocketDev/socket-basics@v2
+        uses: SocketDev/socket-basics@933940968bf73a35a63d5594e78a27d0b2a8c2d3
         with:
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'

@@ -1,0 +1,22 @@
+name: Socket Security Scan
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  socket-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Socket Security Scan
+        uses: SocketDev/socket-basics@v2
+        with:
+          use_custom_sast_rules: 'true'
+          custom_sast_rule_path: '.socket/rules'

@@ -17,11 +17,16 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: ctions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Socket Security Scan
         uses: SocketDev/socket-basics@933940968bf73a35a63d5594e78a27d0b2a8c2d3
+        env:
+          GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          socket_org: ${{ secrets.SOCKET_ORG }}
+          socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           python_sast_enabled: 'true'
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'

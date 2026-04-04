@@ -22,5 +22,6 @@ jobs:
       - name: Socket Security Scan
         uses: SocketDev/socket-basics@933940968bf73a35a63d5594e78a27d0b2a8c2d3
         with:
+          python_sast_enabled: 'true'
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'

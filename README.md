@@ -18,13 +18,3 @@ src/app.py                     # Sample code that triggers the rules
 | `org.no-exec`        | `exec(...)`                          | Arbitrary code execution     |
 | `org.no-shell-true`  | `subprocess.call(..., shell=True)`   | Command injection            |
 | `org.no-pickle-load` | `pickle.loads(...)`                  | Unsafe deserialization       |
-
-## Local Validation
-
-```bash
-# Validate rule syntax
-semgrep --validate --config .socket/rules/
-
-# Run rules against source
-semgrep --config .socket/rules/ src/
-```

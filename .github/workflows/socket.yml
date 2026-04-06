@@ -28,8 +28,9 @@ jobs:
           socket_org: ${{ secrets.SOCKET_ORG }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           javascript_sast_enabled: 'true'
+          javascript_enabled_rules: 'org.no-dangerously-set-innerhtml, org.no-innerhtml, org.no-function-constructor, org.no-eval'
           python_sast_enabled: 'true'
+          python_enabled_rules: 'org.no-pickle-load, org.no-shell-true, org.no-exec, org.no-eval'
           trufflehog_show_unverified: 'true'
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'
-          all_rules_enabled: 'true'

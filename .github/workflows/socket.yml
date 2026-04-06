@@ -27,6 +27,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           socket_org: ${{ secrets.SOCKET_ORG }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          javascript_sast_enabled: 'true'
           python_sast_enabled: 'true'
+          trufflehog_show_unverified: 'true'
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'

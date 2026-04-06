@@ -34,3 +34,39 @@ rules:
     metadata:
       cwe: "CWE-502: Deserialization of Untrusted Data"
       owasp: "A08:2021 Software and Data Integrity Failures"
+
+  - id: org.no-eval
+    pattern: eval(...)
+    languages: [javascript, typescript]
+    message: "Do not use eval() as it can execute arbitrary code"
+    severity: ERROR
+    metadata:
+      cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code"
+      owasp: "A03:2021 Injection"
+
+  - id: org.no-function-constructor
+    pattern: new Function(...)
+    languages: [javascript, typescript]
+    message: "Do not use Function constructor as it can execute arbitrary code"
+    severity: ERROR
+    metadata:
+      cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code"
+      owasp: "A03:2021 Injection"
+
+  - id: org.no-innerhtml
+    pattern: $X.innerHTML = $Y
+    languages: [javascript, typescript]
+    message: "Avoid direct innerHTML assignment as it can lead to XSS vulnerabilities"
+    severity: WARNING
+    metadata:
+      cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
+      owasp: "A03:2021 Injection"
+
+  - id: org.no-dangerously-set-innerhtml
+    pattern: dangerouslySetInnerHTML={...}
+    languages: [javascript, typescript]
+    message: "Avoid dangerouslySetInnerHTML as it can lead to XSS vulnerabilities"
+    severity: WARNING
+    metadata:
+      cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
+      owasp: "A03:2021 Injection"

@@ -32,3 +32,4 @@ jobs:
           trufflehog_show_unverified: 'true'
           use_custom_sast_rules: 'true'
           custom_sast_rule_path: '.socket/rules'
+          all_rules_enabled: 'true'

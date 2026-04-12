@@ -29,4 +29,5 @@ jobs:
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           javascript_sast_enabled: 'true'
           python_sast_enabled: 'true'
+          use_custom_sast_rules: 'true'
           trufflehog_show_unverified: 'true'

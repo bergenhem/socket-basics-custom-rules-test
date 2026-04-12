@@ -20,10 +20,11 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Socket Security Scan
-        uses: SocketDev/socket-basics@933940968bf73a35a63d5594e78a27d0b2a8c2d3
+        uses: SocketDev/socket-basics@2ed98fe2a26e03592d226aaa7034a928932e140c
         env:
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
+          verbose: 'true'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           socket_org: ${{ secrets.SOCKET_ORG }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}

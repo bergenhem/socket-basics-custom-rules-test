@@ -30,5 +30,3 @@ jobs:
           javascript_sast_enabled: 'true'
           python_sast_enabled: 'true'
           trufflehog_show_unverified: 'true'
-          use_custom_sast_rules: 'true'
-          custom_sast_rule_path: '.socket/rules'

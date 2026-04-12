@@ -24,6 +24,7 @@ jobs:
         env:
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
+          verbose: 'true'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           socket_org: ${{ secrets.SOCKET_ORG }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
